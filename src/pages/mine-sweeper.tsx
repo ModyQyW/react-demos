@@ -1,7 +1,6 @@
 /* eslint-disable react/no-array-index-key, jsx-a11y/click-events-have-key-events */
 import { memo, useState, useEffect, useCallback } from 'react';
 import { Typography, Form, Select, InputNumber, Button, Row, Col } from 'antd';
-import { Icon } from '@iconify/react';
 import {
   MinRowCount,
   MaxRowCount,
@@ -48,7 +47,7 @@ const MineSweeper = memo(() => {
         if (matrixItem.type === MatrixItemTypeMap.bomb && status === StatusMap.ended) {
           return '💣';
         }
-        return <Icon className="anticon" icon="emojione:warning" />;
+        return '⚠️';
       }
       // MatrixItemStatusMap.opened
       if (matrixItem.type === MatrixItemTypeMap.bomb) {
