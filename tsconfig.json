@@ -1,0 +1,21 @@
+{
+  "extends": "./node_modules/@modyqyw/fabric/tsconfig.base.json",
+  "compilerOptions": {
+    "baseUrl": "./",
+    "jsx": "react-jsx",
+    "types": ["vite/client", "vite-plugin-pages/client-react"],
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  "include": [
+    "./**/.*.js",
+    "./**/*.js",
+    "./**/*.jsx",
+    "./**/.*.ts",
+    "./**/*.ts",
+    "./**/*.tsx",
+    "./**/*.vue"
+  ],
+  "exclude": ["dist", "node_modules"]
+}
