@@ -7,6 +7,9 @@ export const MaxColCount = 30;
 export const MinMineCount = 10;
 export const MaxMineCount = 668;
 
+export const MinDensity = 0.1;
+export const MaxDensity = 0.21;
+
 export type Option<T = any, V = T> = {
   label: T;
   value: V;

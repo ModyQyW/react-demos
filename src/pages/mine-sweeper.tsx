@@ -8,6 +8,8 @@ import {
   MaxColCount,
   MinMineCount,
   MaxMineCount,
+  MinDensity,
+  MaxDensity,
   DifficultyMap,
   Difficulties,
   type TDifficulty,
@@ -273,6 +275,16 @@ const MineSweeper = memo(() => {
                   required: true,
                   message: `Should between ${MinMineCount} and ${MaxMineCount}`,
                 },
+                ({ getFieldsValue }) => ({
+                  validator: (rule, value) => {
+                    const { rowCount = MinRowCount, colCount = MinColCount } = getFieldsValue();
+                    const density = value / rowCount / colCount;
+                    if (density >= MinDensity && density <= MaxDensity) {
+                      return Promise.resolve();
+                    }
+                    return Promise.reject(new Error('Unsuitable density'));
+                  },
+                }),
               ]}
             >
               <InputNumber
