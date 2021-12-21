@@ -150,7 +150,7 @@ const MineSweeper = memo(() => {
     });
   };
   const onFinish = async () => {
-    const { rowCount, colCount, mineCount } = await form.validateFields();
+    const { rowCount, colCount, mineCount } = form.getFieldsValue();
     const newMatrix: TMatrix = Array.from({ length: rowCount }).map(() =>
       Array.from({ length: colCount }).map(
         () =>
