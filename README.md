@@ -1,3 +1,3 @@
-# README
+# react-demos
 
 Demos in React.
