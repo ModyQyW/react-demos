@@ -49,10 +49,10 @@ const LayoutIndex = memo(({ children }: { children: ReactNode }) => {
             <Link href={`https://gitee.com/${pkg.author.name}/${pkg.name}`} target="_blank">
               Gitee Repo
             </Link>
-            <Link href={`https://modyqyw.github.io/${pkg.name}/`} target="_blank">
+            <Link href={`https://${pkg.author.name}.github.io/${pkg.name}/`} target="_blank">
               Github Page
             </Link>
-            <Link href={`https://modyqyw.gitee.io/${pkg.name}/`} target="_blank">
+            <Link href={`https://${pkg.author.name}.gitee.io/${pkg.name}/`} target="_blank">
               Gitee Page
             </Link>
           </Space>
