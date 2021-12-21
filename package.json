@@ -8,7 +8,7 @@
     "url": "https://modyqyw.github.io"
   },
   "scripts": {
-    "build": "tsc && vite build",
+    "build": "tsc && vite build --base=/react-demos/",
     "commit": "cz",
     "dev": "vite --host",
     "lint": "pnpm run lint:eslint && pnpm run lint:markdownlint && pnpm run lint:stylelint",
