@@ -277,6 +277,7 @@ const MineSweeper = memo(() => {
                   message: `Should between ${MinMineCount} and ${MaxMineCount}`,
                 },
                 ({ getFieldsValue }) => ({
+                  // @ts-ignore
                   validator: async (rule, value) => {
                     const { rowCount = MinRowCount, colCount = MinColCount } = getFieldsValue();
                     const density = value / rowCount / colCount;
