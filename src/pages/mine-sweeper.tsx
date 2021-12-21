@@ -267,6 +267,7 @@ const MineSweeper = memo(() => {
             <Form.Item
               name="mineCount"
               label="Mine"
+              validateFirst
               rules={[
                 {
                   type: 'number',
@@ -276,7 +277,7 @@ const MineSweeper = memo(() => {
                   message: `Should between ${MinMineCount} and ${MaxMineCount}`,
                 },
                 ({ getFieldsValue }) => ({
-                  validator: (rule, value) => {
+                  validator: async (rule, value) => {
                     const { rowCount = MinRowCount, colCount = MinColCount } = getFieldsValue();
                     const density = value / rowCount / colCount;
                     if (density >= MinDensity && density <= MaxDensity) {
