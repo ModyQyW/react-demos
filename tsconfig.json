@@ -3,10 +3,10 @@
   "compilerOptions": {
     "baseUrl": "./",
     "jsx": "react-jsx",
-    "types": ["vite/client", "vite-plugin-pages/client-react"],
     "paths": {
       "@/*": ["./src/*"]
-    }
+    },
+    "types": ["vite/client", "vite-plugin-pages/client-react"]
   },
   "include": [
     "./**/.*.js",
@@ -17,5 +17,5 @@
     "./**/*.tsx",
     "./**/*.vue"
   ],
-  "exclude": ["dist", "node_modules"]
+  "exclude": [".cache", ".temp", ".tmp", "dist*", "node_modules"]
 }
