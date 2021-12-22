@@ -1,33 +1,85 @@
 /* eslint-disable react/no-array-index-key, jsx-a11y/click-events-have-key-events */
 import { memo, useState, useEffect, useCallback } from 'react';
 import { Typography, Form, Select, InputNumber, Button, Row, Col } from 'antd';
-import {
-  MinRowCount,
-  MaxRowCount,
-  MinColCount,
-  MaxColCount,
-  MinMineCount,
-  MaxMineCount,
-  MinDensity,
-  MaxDensity,
-  DifficultyMap,
-  Difficulties,
-  type TDifficulty,
-  type TParam,
-  PresetMap,
-  StatusMap,
-  type TStatus,
-  MatrixItemStatusMap,
-  MatrixItemTypeMap,
-  type TMatrix,
-  type TMatrixItem,
-} from '@/constants';
 import { isEqual, uniqWith, randomInteger } from '@/utils';
 
 const { Paragraph } = Typography;
 
-const initialFormValues: TParam = {
-  ...PresetMap.easy,
+const MinRowCount = 9;
+const MaxRowCount = 24;
+
+const MinColCount = 9;
+const MaxColCount = 30;
+
+const MinMineCount = 10;
+const MaxMineCount = 668;
+
+const MinDensity = 0.1;
+const MaxDensity = 0.21;
+
+const DifficultyMap = {
+  custom: {
+    difficulty: 'custom',
+    rowCount: MinRowCount,
+    colCount: MinColCount,
+    mineCount: MinMineCount,
+  },
+  easy: {
+    difficulty: 'easy',
+    rowCount: 9,
+    colCount: 9,
+    mineCount: 10,
+  },
+  medium: {
+    difficulty: 'medium',
+    rowCount: 16,
+    colCount: 16,
+    mineCount: 40,
+  },
+  hard: {
+    difficulty: 'hard',
+    rowCount: 16,
+    colCount: 30,
+    mineCount: 99,
+  },
+} as const;
+type TDifficulty = keyof typeof DifficultyMap;
+const Difficulties: TOption<TDifficulty>[] = (Object.keys(DifficultyMap) as Array<TDifficulty>).map(
+  (item) => ({
+    label: item,
+    value: item,
+  }),
+);
+
+const StatusMap = {
+  default: 'default',
+  playing: 'playing',
+  ended: 'ended',
+} as const;
+type TStatus = keyof typeof StatusMap;
+
+const MatrixItemStatusMap = {
+  default: 'default',
+  flagged: 'flagged',
+  opened: 'opened',
+} as const;
+type TMatrixItemStatus = keyof typeof MatrixItemStatusMap;
+
+const MatrixItemTypeMap = {
+  bomb: 'bomb',
+  empty: 'empty',
+  number: 'number',
+} as const;
+type TMatrixItemType = keyof typeof MatrixItemTypeMap;
+
+type TMatrixItem = {
+  type: TMatrixItemType;
+  status: TMatrixItemStatus;
+};
+type TMatrix = TMatrixItem[][];
+
+const initialFormValues: typeof DifficultyMap[TDifficulty] = {
+  ...DifficultyMap.easy,
 };
 
 const MineSweeper = memo(() => {
@@ -138,17 +190,17 @@ const MineSweeper = memo(() => {
     }
   }, [matrix, status]);
 
-  const [form] = Form.useForm<TParam>();
+  const [form] = Form.useForm<typeof DifficultyMap[TDifficulty]>();
   const onChangeFormFieldsValue = () => {
     const { rowCount, colCount, mineCount } = form.getFieldsValue();
     form.setFieldsValue({
       difficulty:
-        Object.values(PresetMap).find(
+        Object.values(DifficultyMap).find(
           (item) =>
             item.rowCount === rowCount &&
             item.colCount === colCount &&
             item.mineCount === mineCount,
-        )?.difficulty ?? DifficultyMap.custom,
+        )?.difficulty ?? 'custom',
     });
   };
   const onFinish = async () => {
@@ -212,7 +264,7 @@ const MineSweeper = memo(() => {
               <Select
                 options={Difficulties}
                 onChange={(difficulty: TDifficulty) =>
-                  form.setFieldsValue({ ...PresetMap[difficulty] })
+                  form.setFieldsValue({ ...DifficultyMap[difficulty] })
                 }
               />
             </Form.Item>
