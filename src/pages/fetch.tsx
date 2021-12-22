@@ -39,28 +39,39 @@ const Fetch = memo(() => {
   const [error, setError] = useState<Error | null>(null);
   const onSearch = useCallback(() => {
     setIsLoading(true);
-    if (cacheRef.current[getCacheKey(ServiceMap[service], { keyword, page })]) {
-      setRepositories(cacheRef.current[getCacheKey(ServiceMap[service], { keyword, page })]);
+    setError(null);
+    const key = getCacheKey(ServiceMap[service], { keyword, page });
+    if (cacheRef.current[key]) {
+      setRepositories(cacheRef.current[key]);
       setIsLoading(false);
       return;
     }
     fetch(`${ServiceMap[service]}?q=${keyword}&page=${page}&per_page=10`)
       .then((response) => {
-        setError(null);
-        const newTotal = response.headers.get('total_count') ?? '';
-        if (!Number.isNaN(Number.parseInt(newTotal, 10))) {
-          setTotal(Number.parseInt(newTotal, 10));
+        if (response.ok) {
+          const newTotal = response.headers.get('total_count') ?? '';
+          if (!Number.isNaN(Number.parseInt(newTotal, 10))) {
+            setTotal(Number.parseInt(newTotal, 10));
+          }
         }
         return response.json();
       })
       .then((data) => {
-        if (data.total_count) {
-          setTotal(data.total_count);
+        if (data.message && data.documentation_url) {
+          setError(new Error(`${data.message} ${data.documentation_url}`));
+          setRepositories([]);
+        } else {
+          if (data.total_count) {
+            setTotal(data.total_count);
+          }
+          setRepositories(data.items ?? data);
+          cacheRef.current[key] = data.items ?? data;
         }
-        setRepositories(data.items ?? data);
-        cacheRef.current[getCacheKey(ServiceMap[service], { keyword, page })] = data.items ?? data;
       })
-      .catch((newError) => setError(newError))
+      .catch((newError) => {
+        setError(newError);
+        setRepositories([]);
+      })
       .finally(() => {
         setIsLoading(false);
       });
@@ -100,46 +111,44 @@ const Fetch = memo(() => {
           {!isLoading && error && (
             <Result status="error" title={error?.message ?? error ?? 'Unknown Error'} />
           )}
-          {!error && (
-            <Table
-              loading={isLoading}
-              className="mt-4"
-              dataSource={repositories}
-              rowKey="id"
-              pagination={{
-                current: page,
-                pageSize: 10,
-                total,
-                position: ['topCenter', 'bottomCenter'],
-                showSizeChanger: false,
-                onChange: onChangePagination,
-              }}
-              columns={[
-                {
-                  title: 'Name',
-                  dataIndex: 'full_name',
-                  // @ts-ignore
-                  render: (text, record) => (
-                    <Link href={record.url} target="_blank">
-                      {record.full_name}
-                    </Link>
-                  ),
-                },
-                {
-                  title: 'Issues',
-                  dataIndex: 'open_issues_count',
-                },
-                {
-                  title: 'Stars',
-                  dataIndex: 'stargazers_count',
-                },
-                {
-                  title: 'Forks',
-                  dataIndex: 'forks_count',
-                },
-              ]}
-            />
-          )}
+          <Table
+            loading={isLoading}
+            className="mt-4"
+            dataSource={repositories}
+            rowKey="id"
+            pagination={{
+              current: page,
+              pageSize: 10,
+              total,
+              position: ['topCenter', 'bottomCenter'],
+              showSizeChanger: false,
+              onChange: onChangePagination,
+            }}
+            columns={[
+              {
+                title: 'Name',
+                dataIndex: 'full_name',
+                // @ts-ignore
+                render: (text, record) => (
+                  <Link href={record.url} target="_blank">
+                    {record.full_name}
+                  </Link>
+                ),
+              },
+              {
+                title: 'Issues',
+                dataIndex: 'open_issues_count',
+              },
+              {
+                title: 'Stars',
+                dataIndex: 'stargazers_count',
+              },
+              {
+                title: 'Forks',
+                dataIndex: 'forks_count',
+              },
+            ]}
+          />
         </Col>
       </Row>
     </>
