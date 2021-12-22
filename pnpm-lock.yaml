@@ -22,7 +22,7 @@ specifiers:
   is-ci: ~3.0.1
   lint-staged: ~12.1.3
   markdownlint-cli: ~0.30.0
-  postcss-preset-env: ~7.0.2
+  postcss-preset-env: ~7.1.0
   prettier: ~2.5.1
   react: ~17.0.2
   react-dom: ~17.0.2
@@ -31,8 +31,9 @@ specifiers:
   release-it: ~14.11.8
   stylelint: ~14.2.0
   tailwindcss: ~3.0.7
+  type-fest: ~2.8.0
   typescript: ~4.5.4
-  vite: ~2.7.5
+  vite: ~2.7.6
   vite-plugin-compression: ~0.3.6
   vite-plugin-env-compatible: ~1.1.1
   vite-plugin-eslint: ~1.3.0
@@ -50,6 +51,7 @@ dependencies:
   react-dom: 17.0.2_react@17.0.2
   react-router: 6.2.1_react@17.0.2
   react-router-dom: 6.2.1_react-dom@17.0.2+react@17.0.2
+  type-fest: 2.8.0
 
 devDependencies:
   '@babel/core': 7.16.5
@@ -68,19 +70,19 @@ devDependencies:
   is-ci: 3.0.1
   lint-staged: 12.1.3
   markdownlint-cli: 0.30.0
-  postcss-preset-env: 7.0.2
+  postcss-preset-env: 7.1.0
   prettier: 2.5.1
   release-it: 14.11.8
   stylelint: 14.2.0
   tailwindcss: 3.0.7
   typescript: 4.5.4
-  vite: 2.7.5
-  vite-plugin-compression: 0.3.6_vite@2.7.5
+  vite: 2.7.6
+  vite-plugin-compression: 0.3.6_vite@2.7.6
   vite-plugin-env-compatible: 1.1.1
-  vite-plugin-eslint: 1.3.0_vite@2.7.5
-  vite-plugin-pages: 0.19.6_vite@2.7.5
-  vite-plugin-stylelint: 1.1.0_vite@2.7.5
-  vite-tsconfig-paths: 3.3.17_vite@2.7.5
+  vite-plugin-eslint: 1.3.0_vite@2.7.6
+  vite-plugin-pages: 0.19.6_vite@2.7.6
+  vite-plugin-stylelint: 1.1.0_vite@2.7.6
+  vite-tsconfig-paths: 3.3.17_vite@2.7.6
 
 packages:
 
@@ -5576,8 +5578,8 @@ packages:
       postcss-value-parser: 4.2.0
     dev: true
 
-  /postcss-preset-env/7.0.2:
-    resolution: {integrity: sha512-xgmkS+H2xhjPQWewnH4ViKBCHIZ15FfpldGZuBFaBIi/iipxHTLnBHKtkCp1L531SdNEPwo9md2psjOU1G77lw==}
+  /postcss-preset-env/7.1.0:
+    resolution: {integrity: sha512-YZI44uxVJQQu18TeHEoDtdLsjKLQpCpzt/4FAzadIcnNYwvKSQqvxaHE6uWobEWQrcfU42zIddMPUKgYQxZs8g==}
     engines: {node: ^12 || ^14 || >=16}
     hasBin: true
     peerDependencies:
@@ -7360,6 +7362,11 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
+  /type-fest/2.8.0:
+    resolution: {integrity: sha512-O+V9pAshf9C6loGaH0idwsmugI2LxVNR7DtS40gVo2EXZVYFgz9OuNtOhgHLdHdapOEWNdvz9Ob/eeuaWwwlxA==}
+    engines: {node: '>=12.20'}
+    dev: false
+
   /typedarray-to-buffer/3.1.5:
     resolution: {integrity: sha512-zdu8XMNEDepKKR+XYOXAVPtWui0ly0NtohUscw+UmaHiAWT8hrV1rr//H6V+0DvJ3OQ19S979M0laLfX8rm82Q==}
     dependencies:
@@ -7479,7 +7486,7 @@ packages:
     engines: {node: '>= 0.10'}
     dev: false
 
-  /vite-plugin-compression/0.3.6_vite@2.7.5:
+  /vite-plugin-compression/0.3.6_vite@2.7.6:
     resolution: {integrity: sha512-aSskQCJsP3VQ8PsnY+vO7UfD5qoFMOEuzg0PG2E9Zqyx+ARmc3wr9KCgOFraZOFW1Y4UAa5BR0SMTjoxHRMJoQ==}
     peerDependencies:
       vite: '>=2.0.0'
@@ -7487,7 +7494,7 @@ packages:
       chalk: 4.1.2
       debug: 4.3.3
       fs-extra: 10.0.0
-      vite: 2.7.5
+      vite: 2.7.6
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -7496,7 +7503,7 @@ packages:
     resolution: {integrity: sha512-4lqhBWhOzP+SaCPoCVdmpM5cXzjKQV5jgFauxea488oOeElXo/kw6bXkMIooZhrh9q7gclTl8en6N9NmnqUwRQ==}
     dev: true
 
-  /vite-plugin-eslint/1.3.0_vite@2.7.5:
+  /vite-plugin-eslint/1.3.0_vite@2.7.6:
     resolution: {integrity: sha512-ng6liBWegj6bovfJVGsXXL2XeQR3xnqe4UsnwTE8rbsYTnAaiLfaZK3rruGAyiwCBPbBc2IEED6T7sus5NJfEw==}
     peerDependencies:
       vite: ^2.0.0
@@ -7504,12 +7511,12 @@ packages:
       '@rollup/pluginutils': 4.1.2
       eslint: 7.32.0
       rollup: 2.61.1
-      vite: 2.7.5
+      vite: 2.7.6
     transitivePeerDependencies:
       - supports-color
     dev: true
 
-  /vite-plugin-pages/0.19.6_vite@2.7.5:
+  /vite-plugin-pages/0.19.6_vite@2.7.6:
     resolution: {integrity: sha512-wpgVAQmNLSmxNfEY1o/f3s7fcghPMMBteJYtZxfVwMUt+DaxJPlponDRGi3dEf/OVLZKOBzD0qW7468icqYiRg==}
     peerDependencies:
       '@vue/compiler-sfc': '>=3'
@@ -7523,21 +7530,21 @@ packages:
       fast-glob: 3.2.7
       json5: 2.2.0
       local-pkg: 0.4.0
-      vite: 2.7.5
+      vite: 2.7.6
       yaml: 2.0.0-9
     transitivePeerDependencies:
       - supports-color
     dev: true
 
-  /vite-plugin-stylelint/1.1.0_vite@2.7.5:
+  /vite-plugin-stylelint/1.1.0_vite@2.7.6:
     resolution: {integrity: sha512-MfjKd9vSwfY3DC6fnpvvD5AB/NbuhKv8IA7PVivLo5N3X+tZvUdheA8kUyJh8o8cqaisYOJ3XssmlawcYIT5GQ==}
     peerDependencies:
       vite: ^2.0.0
     dependencies:
-      vite: 2.7.5
+      vite: 2.7.6
     dev: true
 
-  /vite-tsconfig-paths/3.3.17_vite@2.7.5:
+  /vite-tsconfig-paths/3.3.17_vite@2.7.6:
     resolution: {integrity: sha512-wx+rfC53moVLxMBj2EApJZgY6HtvWUFVZ4dBxNGYBxSSqU6UaHdKlcOxrfGDxyTGtYEr9beWCryHn18C4EtZkg==}
     peerDependencies:
       vite: '>2.0.0-0'
@@ -7546,13 +7553,13 @@ packages:
       globrex: 0.1.2
       recrawl-sync: 2.2.1
       tsconfig-paths: 3.12.0
-      vite: 2.7.5
+      vite: 2.7.6
     transitivePeerDependencies:
       - supports-color
     dev: true
 
-  /vite/2.7.5:
-    resolution: {integrity: sha512-Bx8Iph9IJn6pWcErPkHKnyPABGMwK/vcdA0+V4TRC8TJFA7Zf6Xd1lRoUzsHHWUM8J+iUKKEuuNqqQUoxY3XvQ==}
+  /vite/2.7.6:
+    resolution: {integrity: sha512-PBNoc87rDYLtkpFU9dbVeGdbcyKzz6c34oScqivE3FEa3BhVa4ASupCzcz0eDIiSECovfLcQnLUJt9vhiEU08g==}
     engines: {node: '>=12.2.0'}
     hasBin: true
     peerDependencies:
