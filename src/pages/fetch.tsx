@@ -19,7 +19,6 @@ type TRepository = {
   url: string;
   stargazers_count: number;
   forks_count: number;
-  open_issues_count: number;
 };
 
 type TCache = Record<string, TRepository[]>;
@@ -116,10 +115,12 @@ const Fetch = memo(() => {
             className="mt-4"
             dataSource={repositories}
             rowKey="id"
+            size="small"
             pagination={{
               current: page,
               pageSize: 10,
               total,
+              size: 'small',
               position: ['topCenter', 'bottomCenter'],
               showSizeChanger: false,
               onChange: onChangePagination,
@@ -128,6 +129,7 @@ const Fetch = memo(() => {
               {
                 title: 'Name',
                 dataIndex: 'full_name',
+                ellipsis: true,
                 // @ts-ignore
                 render: (text, record) => (
                   <Link href={record.url} target="_blank">
@@ -136,16 +138,14 @@ const Fetch = memo(() => {
                 ),
               },
               {
-                title: 'Issues',
-                dataIndex: 'open_issues_count',
-              },
-              {
                 title: 'Stars',
                 dataIndex: 'stargazers_count',
+                width: 80,
               },
               {
                 title: 'Forks',
                 dataIndex: 'forks_count',
+                width: 80,
               },
             ]}
           />
