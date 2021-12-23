@@ -13,6 +13,8 @@ const Services: TOption<TService>[] = (Object.keys(ServiceMap) as Array<TService
   value: item,
 }));
 
+const Limit = 10;
+
 type TRepository = {
   id: number;
   full_name: string;
@@ -23,7 +25,7 @@ type TRepository = {
 
 type TCache = Record<string, TRepository[]>;
 
-const getCacheKey = (service: typeof ServiceMap[TService], param: Record<string, any>) =>
+const getCacheKey = (service: TService, param: Record<string, any>) =>
   JSON.stringify([service, param]);
 
 const Fetch = memo(() => {
@@ -39,13 +41,13 @@ const Fetch = memo(() => {
   const onSearch = useCallback(() => {
     setIsLoading(true);
     setError(null);
-    const key = getCacheKey(ServiceMap[service], { keyword, page });
+    const key = getCacheKey(service, { keyword, page });
     if (cacheRef.current[key]) {
       setRepositories(cacheRef.current[key]);
       setIsLoading(false);
       return;
     }
-    fetch(`${ServiceMap[service]}?q=${keyword}&page=${page}&per_page=10`)
+    fetch(`${ServiceMap[service]}?q=${keyword}&page=${page}&per_page=${Limit}`)
       .then((response) => {
         if (response.ok) {
           const newTotal = response.headers.get('total_count') ?? '';
@@ -118,7 +120,7 @@ const Fetch = memo(() => {
             size="small"
             pagination={{
               current: page,
-              pageSize: 10,
+              pageSize: Limit,
               total,
               size: 'small',
               position: ['topCenter', 'bottomCenter'],
