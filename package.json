@@ -27,7 +27,7 @@
   "dependencies": {
     "@iconify/react": "~3.1.0",
     "@modyqyw/utils": "~2.0.1",
-    "ahooks": "~3.0.8",
+    "ahooks": "~3.1.0",
     "antd": "~4.17.4",
     "browser-update": "~3.3.35",
     "react": "~17.0.2",
