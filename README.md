@@ -1,7 +1,10 @@
 # react-demos
 
+English | [简体中文](./README.zh-Hans.md)
+
 Demos in React.
 
+- [mdn](https://developer.mozilla.org/)
 - [typescript](https://www.typescriptlang.org/)
   - [typescript deep dive](https://basarat.gitbook.io/typescript/)
   - [type challenges](https://github.com/type-challenges/type-challenges)
@@ -11,6 +14,7 @@ Demos in React.
 - [react](https://reactjs.org/)
 - [ant-design](https://ant.design/)
 - [ahooks](https://ahooks.js.org/)
+- [react-use](https://github.com/streamich/react-use)
 - [vite](https://vitejs.dev/)
   - [@vitejs/plugin-react](https://github.com/vitejs/vite/tree/main/packages/plugin-react)
   - [vite-plugin-compression](https://github.com/anncwb/vite-plugin-compression)
