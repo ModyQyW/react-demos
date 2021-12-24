@@ -6,7 +6,7 @@ specifiers:
   '@commitlint/cli': ~15.0.0
   '@iconify/react': ~3.1.0
   '@modyqyw/fabric': ~4.4.5
-  '@modyqyw/utils': ~2.0.1
+  '@modyqyw/utils': ~2.1.0
   '@types/browser-update': ~3.3.0
   '@types/react': ~17.0.37
   '@types/react-dom': ~17.0.11
@@ -44,7 +44,7 @@ specifiers:
 
 dependencies:
   '@iconify/react': 3.1.0
-  '@modyqyw/utils': 2.0.1
+  '@modyqyw/utils': 2.1.0
   ahooks: 3.0.8_react@17.0.2
   antd: 4.17.4_react-dom@17.0.2+react@17.0.2
   browser-update: 3.3.35
@@ -667,7 +667,7 @@ packages:
       '@commitlint/config-conventional': 15.0.0
       '@commitlint/types': 15.0.0
       '@types/eslint': 8.2.1
-      '@types/node': 17.0.2
+      '@types/node': 17.0.4
       '@types/prettier': 2.4.2
       '@typescript-eslint/eslint-plugin': 5.7.0_a6f6159640504abdd3de077f8bcadb33
       '@typescript-eslint/parser': 5.7.0_eslint@8.5.0+typescript@4.5.4
@@ -720,19 +720,20 @@ packages:
       - webpack
     dev: true
 
-  /@modyqyw/utils/2.0.1:
-    resolution: {integrity: sha512-UUfkUlnV/xaou2Z16oZeToA5TcaJDs42u3b2GdIqjqUbz4e1f2QbpuzisLQOzcrmM0Ndjpp77lu8jHzsdnymxA==}
-    engines: {node: ^12.22.6 || ^14.17.6 || ^16.8.0}
+  /@modyqyw/utils/2.1.0:
+    resolution: {integrity: sha512-G+lz0SRJijRd3MFgbITkK8C80zmCMGrlHkUh+4IWb1kLK/1fleETPn5jWWUnKhpxiiuG9z0koskfbLgEjxV9/Q==}
     dependencies:
+      '@sindresorhus/is': 4.2.0
       '@types/lodash-es': 4.17.5
-      '@types/node': 16.11.14
+      '@types/node': 17.0.4
       '@types/uuid': 8.3.3
-      '@types/validator': 13.6.6
+      '@types/validator': 13.7.1
       change-case: 4.1.2
       lodash-es: 4.17.21
       nanoid: 3.1.30
       p-retry: 5.0.0
       short-uuid: 4.2.0
+      ts-extras: 0.7.0
       validator: 13.7.0
     dev: false
 
@@ -882,7 +883,6 @@ packages:
   /@sindresorhus/is/4.2.0:
     resolution: {integrity: sha512-VkE3KLBmJwcCaVARtQpfuKcKv8gcBmUubrfHGF84dXuuW6jgsRYxPtzcIhPyK9WAPpRt2/xY6zkD9MnRaJzSyw==}
     engines: {node: '>=10'}
-    dev: true
 
   /@szmarczak/http-timer/1.1.2:
     resolution: {integrity: sha512-XIB2XbzHTN6ieIjfIMV9hlVcfPU26s2vafYWQcZHWXHOxiaRZYEDKEwdl129Zyg50+foYV2jCgtrqSA6qNuNSA==}
@@ -907,7 +907,7 @@ packages:
     dependencies:
       '@types/http-cache-semantics': 4.0.1
       '@types/keyv': 3.1.3
-      '@types/node': 17.0.2
+      '@types/node': 17.0.4
       '@types/responselike': 1.0.0
     dev: true
 
@@ -941,7 +941,7 @@ packages:
   /@types/keyv/3.1.3:
     resolution: {integrity: sha512-FXCJgyyN3ivVgRoml4h94G/p3kY+u/B86La+QptcqJaWtBWtmc6TtkNfS40n9bIvyLteHh7zXOtgbobORKPbDg==}
     dependencies:
-      '@types/node': 17.0.2
+      '@types/node': 17.0.4
     dev: true
 
   /@types/lodash-es/4.17.5:
@@ -958,13 +958,8 @@ packages:
     resolution: {integrity: sha512-jhuKLIRrhvCPLqwPcx6INqmKeiA5EWrsCOPhrlFSrbrmU4ZMPjj5Ul/oLCMDO98XRUIwVm78xICz4EPCektzeQ==}
     dev: true
 
-  /@types/node/16.11.14:
-    resolution: {integrity: sha512-mK6BKLpL0bG6v2CxHbm0ed6RcZrAtTHBTd/ZpnlVPVa3HkumsqLE4BC4u6TQ8D7pnrRbOU0am6epuALs+Ncnzw==}
-    dev: false
-
-  /@types/node/17.0.2:
-    resolution: {integrity: sha512-JepeIUPFDARgIs0zD/SKPgFsJEAF0X5/qO80llx59gOxFTboS9Amv3S+QfB7lqBId5sFXJ99BN0J6zFRvL9dDA==}
-    dev: true
+  /@types/node/17.0.4:
+    resolution: {integrity: sha512-6xwbrW4JJiJLgF+zNypN5wr2ykM9/jHcL7rQ8fZe2vuftggjzZeRSM4OwRc6Xk8qWjwJ99qVHo/JgOGmomWRog==}
 
   /@types/normalize-package-data/2.4.1:
     resolution: {integrity: sha512-Gj7cI7z+98M282Tqmp2K5EIsoouUEzbBJhQQzDE3jSIRk6r9gsz0oUokqIUR4u1R3dMHo0pDHM7sNOHyhulypw==}
@@ -999,7 +994,7 @@ packages:
   /@types/responselike/1.0.0:
     resolution: {integrity: sha512-85Y2BjiufFzaMIlvJDvTTB8Fxl2xfLo4HgmHzVBz08w4wDePCTjYw66PdrolO0kzli3yam/YCgRufyo1DdQVTA==}
     dependencies:
-      '@types/node': 17.0.2
+      '@types/node': 17.0.4
     dev: true
 
   /@types/retry/0.12.1:
@@ -1014,8 +1009,8 @@ packages:
     resolution: {integrity: sha512-0LbEEx1zxrYB3pgpd1M5lEhLcXjKJnYghvhTRgaBeUivLHMDM1TzF3IJ6hXU2+8uA4Xz+5BA63mtZo5DjVT8iA==}
     dev: false
 
-  /@types/validator/13.6.6:
-    resolution: {integrity: sha512-+qogUELb4gMhrMjSh/seKmGVvN+uQLfyqJAqYRWqVHsvBsUO2xDBCL8CJ/ZSukbd8vXaoYbpIssAmfLEzzBHEw==}
+  /@types/validator/13.7.1:
+    resolution: {integrity: sha512-I6OUIZ5cYRk5lp14xSOAiXjWrfVoMZVjDuevBYgQDYzZIjsf2CAISpEcXOkFAtpAHbmWIDLcZObejqny/9xq5Q==}
     dev: false
 
   /@typescript-eslint/eslint-plugin/5.7.0_a6f6159640504abdd3de077f8bcadb33:
@@ -7450,6 +7445,13 @@ packages:
 
   /ts-easing/0.2.0:
     resolution: {integrity: sha512-Z86EW+fFFh/IFB1fqQ3/+7Zpf9t2ebOAxNI/V6Wo7r5gqiqtxmgTlQ1qbqQcjLKYeSHPTsEmvlJUDg/EuL0uHQ==}
+    dev: false
+
+  /ts-extras/0.7.0:
+    resolution: {integrity: sha512-hQiJQyPrPs0wAsleJaAoMdjcJqvxD3+TtlFZpIHsI78Ub9S6/t03fYj9XNy/BL156FvsjGW0YYyvlzR7xhqdJg==}
+    engines: {node: '>=12.20'}
+    dependencies:
+      type-fest: 2.8.0
     dev: false
 
   /ts-node/9.1.1_typescript@4.5.4:
