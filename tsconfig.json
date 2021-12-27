@@ -6,7 +6,8 @@
     "paths": {
       "@/*": ["./src/*"]
     },
-    "types": ["type-fest", "vite/client", "vite-plugin-pages/client-react"]
+    "types": ["type-fest", "vite/client", "vite-plugin-pages/client-react"],
+    "target": "ESNext"
   },
   "include": [
     "./**/.*.js",
