@@ -6,7 +6,7 @@
     "paths": {
       "@/*": ["./src/*"]
     },
-    "types": ["vite/client", "vite-plugin-pages/client-react"]
+    "types": ["type-fest", "vite/client", "vite-plugin-pages/client-react"]
   },
   "include": [
     "./**/.*.js",
@@ -15,7 +15,8 @@
     "./**/.*.ts",
     "./**/*.ts",
     "./**/*.tsx",
-    "./**/*.vue"
+    "./**/*.vue",
+    "./**/*.svelte"
   ],
   "exclude": [".cache", ".temp", ".tmp", "dist*", "node_modules"]
 }
