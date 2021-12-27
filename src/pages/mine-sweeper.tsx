@@ -1,7 +1,7 @@
 /* eslint-disable react/no-array-index-key, jsx-a11y/click-events-have-key-events */
 import { memo, useState, useEffect, useCallback } from 'react';
 import { Typography, Form, Select, InputNumber, Button, Row, Col } from 'antd';
-import { isEqual, uniqWith, randomInteger } from '@/utils';
+import { isEqual, uniqWith, randomInteger, objectKeys } from '@/utils';
 
 const { Paragraph } = Typography;
 
@@ -44,12 +44,10 @@ const DifficultyMap = {
   },
 } as const;
 type TDifficulty = keyof typeof DifficultyMap;
-const Difficulties: TOption<TDifficulty>[] = (Object.keys(DifficultyMap) as Array<TDifficulty>).map(
-  (item) => ({
-    label: item,
-    value: item,
-  }),
-);
+const Difficulties: TOption<TDifficulty>[] = objectKeys(DifficultyMap).map((item) => ({
+  label: item,
+  value: item,
+}));
 
 const StatusMap = {
   default: 'default',
@@ -256,7 +254,7 @@ const MineSweeper = memo(() => {
               rules={[
                 {
                   type: 'enum',
-                  enum: Object.keys(DifficultyMap),
+                  enum: objectKeys(DifficultyMap),
                   required: true,
                   message: 'Please select',
                 },

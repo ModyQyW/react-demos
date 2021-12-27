@@ -1,5 +1,6 @@
 import { memo, useState, useRef, useEffect, useCallback } from 'react';
 import { Row, Col, Input, Select, Result, Table, Typography } from 'antd';
+import { objectKeys } from '@modyqyw/utils';
 
 const { Link } = Typography;
 
@@ -8,7 +9,7 @@ const ServiceMap = {
   gitee: 'https://gitee.com/api/v5/search/repositories',
 } as const;
 type TService = keyof typeof ServiceMap;
-const Services: TOption<TService>[] = (Object.keys(ServiceMap) as Array<TService>).map((item) => ({
+const Services: TOption<TService>[] = objectKeys(ServiceMap).map((item) => ({
   label: item,
   value: item,
 }));
