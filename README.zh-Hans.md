@@ -24,6 +24,35 @@
   - [vite-plugin-stylelint](https://github.com/ModyQyW/vite-plugin-stylelint)
   - [vite-tsconfig-paths](https://github.com/aleclarson/vite-tsconfig-paths)
 
+## fetch
+
+使用 fetch 请求 github 或 gitee 存储库搜索 API，可更改关键字，有简单的缓存。
+
+### 关键类型说明
+
+- `TService` 服务
+- `TRepository` 存储库
+- `TCache` 缓存
+
+### 关键变量说明
+
+- `ServiceMap` 服务映射
+- `Services` 服务选项数组
+- `Limit` 每页数据条数
+
+### 关键实现说明
+
+- 缓存的键
+
+发起查询时，我们需要用到服务 `service`、当前页 `page`、关键字 `keyword` 来确定我们请求的 URL，可以使用这三者作为缓存的键。
+
+```ts
+const getCacheKey = (service: TService, param: Record<string, any>) =>
+  JSON.stringify([service, param]);
+```
+
+思路参考了 [react-query](https://react-query.tanstack.com/)。
+
 ## mine-sweeper
 
 扫雷。
@@ -188,31 +217,20 @@ setMatrix(newMatrix);
 
 只有当游戏状态不是已结束 `ended`，且矩阵内存在元素 `matrix.length > 0`，且矩阵内不存在矩阵块状态是已翻开 `opened` 且矩阵块类型是炸弹 `bomb` 的矩阵块，游戏结束。
 
-## fetch
-
-使用 fetch 请求 github 或 gitee 仓库搜索 API，可更改关键字，有简单的缓存。
+## memo
 
 ### 关键类型说明
 
-- `TService` 服务
-- `TRepository` 仓库
-- `TCache` 缓存
+- `TStorage` 仓库
+- `TMemoStatus` 备忘状态
+- `TMemo` 备忘
+- `TMemos` 备忘数组
 
 ### 关键变量说明
 
-- `ServiceMap` 服务映射
-- `Services` 服务选项数组
-- `Limit` 每页数据条数
-
-### 关键实现说明
-
-- 缓存的键
-
-发起查询时，我们需要用到服务 `service`、当前页 `page`、关键字 `keyword` 来确定我们请求的 URL，可以使用这三者作为缓存的键。
-
-```ts
-const getCacheKey = (service: TService, param: Record<string, any>) =>
-  JSON.stringify([service, param]);
-```
-
-思路参考了 [react-query](https://react-query.tanstack.com/)。
+- `StorageMap` 仓库映射
+- `DefaultStorage` 默认仓库
+- `Storages` 仓库数组
+- `StorageKey` 仓库在 `localStorage` 存储的键
+- `MemosKey` 备忘在仓库存储的键
+- `MemoStatusMap` 备忘状态映射
