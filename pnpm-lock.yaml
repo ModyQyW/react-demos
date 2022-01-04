@@ -5,7 +5,7 @@ specifiers:
   '@babel/eslint-parser': ~7.16.5
   '@commitlint/cli': ~16.0.1
   '@iconify/react': ~3.1.1
-  '@modyqyw/fabric': ~4.7.2
+  '@modyqyw/fabric': ~4.7.3
   '@modyqyw/utils': ~2.1.1
   '@types/browser-update': ~3.3.0
   '@types/react': ~17.0.38
@@ -59,7 +59,7 @@ devDependencies:
   '@babel/core': 7.16.7
   '@babel/eslint-parser': 7.16.5_@babel+core@7.16.7+eslint@8.6.0
   '@commitlint/cli': 16.0.1
-  '@modyqyw/fabric': 4.7.2_4c78c31dc5a7d4eea61401d152efc357
+  '@modyqyw/fabric': 4.7.3_4c78c31dc5a7d4eea61401d152efc357
   '@types/browser-update': 3.3.0
   '@types/react': 17.0.38
   '@types/react-dom': 17.0.11
@@ -744,8 +744,8 @@ packages:
       cross-fetch: 3.1.4
     dev: false
 
-  /@modyqyw/fabric/4.7.2_4c78c31dc5a7d4eea61401d152efc357:
-    resolution: {integrity: sha512-4z1dGV5s5TBZEJ2nFFMX4XJesyPIxjZ7KkflkiEdHdeBPp2c+DuFdsKmfLgKJ09pxuS0ZmzBIwyjiYI6mHJDgg==}
+  /@modyqyw/fabric/4.7.3_4c78c31dc5a7d4eea61401d152efc357:
+    resolution: {integrity: sha512-JxG4YCyRy8DQWRmljoWNCC51MFMN8vRGWTRGxQDqTOFJxkch5PDiv6XJMDe3cD965D8PDR1X2r/9HydELQMXBA==}
     engines: {node: ^12.22.6 || ^14.17.6 || ^16.8.0}
     hasBin: true
     dependencies:
@@ -770,7 +770,6 @@ packages:
       eslint-import-resolver-typescript: 2.5.0_b54597effeb7d09a84a334cc3c3dadae
       eslint-import-resolver-webpack: 0.13.2_eslint-plugin-import@2.25.3
       eslint-plugin-eslint-comments: 3.2.0_eslint@8.6.0
-      eslint-plugin-functional: 4.0.2_dc53e4c6fdb7300a0303d5860751e9f7
       eslint-plugin-import: 2.25.3_eslint@8.6.0
       eslint-plugin-jsx-a11y: 6.5.1_eslint@8.6.0
       eslint-plugin-prettier: 4.0.0_1c588f61426b1faf18812943f1678311
@@ -2528,13 +2527,6 @@ packages:
     resolution: {integrity: sha512-oIPzksmTg4/MriiaYGO+okXDT7ztn/w3Eptv/+gSIdMdKsJo0u4CfYNFJPy+4SKMuCqGw2wxnA+URMg3t8a/bQ==}
     dev: true
 
-  /deepmerge-ts/1.1.7:
-    resolution: {integrity: sha512-nz5/Qo7mpJAZpq21bkGNu8khSwuE9RLRAdNe9vIZPLZVY2YAbSb4T9fMM5+WxU0K5+knIHmja+bQSPgxSMdfWQ==}
-    engines: {node: '>=12.4.0'}
-    dependencies:
-      is-plain-object: 5.0.0
-    dev: true
-
   /defaults/1.0.3:
     resolution: {integrity: sha1-xlYFHpgX2f8I7YgUd/P+QBnz730=}
     dependencies:
@@ -3119,29 +3111,6 @@ packages:
       escape-string-regexp: 1.0.5
       eslint: 8.6.0
       ignore: 5.2.0
-    dev: true
-
-  /eslint-plugin-functional/4.0.2_dc53e4c6fdb7300a0303d5860751e9f7:
-    resolution: {integrity: sha512-OznwyoZofhDLurZZdfA6ER5yNQWrVTthv+l/FT7HL3+8UkZ9YQXld997s/5Rg7HeLicNWROwBYweOJ8JonbVFg==}
-    engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
-    peerDependencies:
-      eslint: ^8.0.0
-      tsutils: ^3.0.0
-      typescript: ^3.4.1 || ^4.0.0
-    peerDependenciesMeta:
-      tsutils:
-        optional: true
-      typescript:
-        optional: true
-    dependencies:
-      '@typescript-eslint/experimental-utils': 5.9.0_eslint@8.6.0+typescript@4.5.4
-      deepmerge-ts: 1.1.7
-      escape-string-regexp: 4.0.0
-      eslint: 8.6.0
-      tsutils: 3.21.0_typescript@4.5.4
-      typescript: 4.5.4
-    transitivePeerDependencies:
-      - supports-color
     dev: true
 
   /eslint-plugin-import/2.25.3_eslint@8.6.0:
