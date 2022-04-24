@@ -40,7 +40,7 @@
     "@babel/core": "~7.16.7",
     "@babel/eslint-parser": "~7.16.5",
     "@commitlint/cli": "~16.0.1",
-    "@modyqyw/fabric": "~4.7.3",
+    "@modyqyw/fabric": "~4.20.0",
     "@types/browser-update": "~3.3.0",
     "@types/react": "~17.0.38",
     "@types/react-dom": "~17.0.11",
